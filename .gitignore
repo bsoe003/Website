@@ -1,0 +1,11 @@
+.DS_Store
+node_modules
+bower_components
+npm-debug.log
+.cfignore
+.project
+manifest.yml
+.env
+public/style.min.css
+public/script.min.js
+ngrok

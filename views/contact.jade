@@ -1,0 +1,42 @@
+extends ./layouts/layout.jade
+
+block content
+    ._contact_
+        ._map-wrapper_
+            div(id='map', class='content')
+        ._basic-contact-wrapper_
+            ._basic-contact_
+                span(class='basic-contact-info contact-title') Location
+                span(class='basic-contact-info contact-subtitle') Near UC San Diego (attending as a student)
+                br
+                span(class='basic-contact-info contact-title') Email
+                span(class='basic-contact-info contact-subtitle') 
+                    a(href='mailto:brian.soe003@gmail.com') brian.soe003@gmail.com
+                    //- |  or 
+                    //- a(href='mailto:bsoe@ucsd.edu') bsoe@ucsd.edu
+                br
+                span(class='basic-contact-info contact-title') Phone
+                span(class='basic-contact-info contact-subtitle') 816.830.5852
+                br
+                span(class='basic-contact-info contact-title') Connect
+                span(class='basic-contact-info contact-subtitle') Feel free to connect me at 
+                    a(href='https://linkedin.com/in/bsoe003', target='_blank', rel="external") LinkedIn
+                    |  or 
+                    a(href='https://twitter.com/bsoe003', target='_blank', rel="external") Twitter
+                    |!
+                br
+                button(id='open-contact-form', data-rel="dialog", data-transition="pop") Let's Chat!
+    div(id='contact-form-box', class='_modal_')
+        ._modal-content_
+            span(class='_close_') X
+            form(id="contact-form", action="/mail" method="POST")
+                span(class='_form-title_') Contact Me
+                label(for='_email_') Your Name
+                input(type='text', id='_name_', name='name', placeholder='John Doe', required)
+                label(for='_email_') Your Email
+                input(type='email', id='_email_', name='email', placeholder='johndoe@test.com', required)
+                label(for='_subject_') Subject
+                input(type='text', id='_subject_', name='subject', placeholder='Subject', required)
+                label(for='_contact-content_') Content
+                textarea(name='content', id='_contact-content_', placeholder='Hi Brian!', required)
+                input(type='submit', name='submit', value='Send Message')

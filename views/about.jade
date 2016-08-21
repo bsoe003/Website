@@ -1,0 +1,102 @@
+//- Internships, Teaching Assistant, Interest, Education, Skills
+extends ./layouts/layout.jade
+
+block content
+    ._profile_
+        ._profile-image-holder_
+            img(src='/media/images/profile.jpg', alt='Brian Soe')
+        ._profile-info-holder_
+            span(class='large') Brian Soe
+            span(class='medium') Software + Web Developer
+    ._row_
+        ._headline_
+            span Introduction
+        ._description_
+            p Hello, my name is Brian!
+            p I am set to graduate at December 2016 from  
+                a(href='http://www.ucsd.edu', target='_blank', rel="external") University of California, San Diego
+                | , studying Computer Science, Cognitive Science, and Human-Computer Interaction.
+            p Outside of my desk ... I enjoy playing Pokémon, walking/jogging around parks, watching anime, and solving undoubtedly challenging problems.
+    ._row_
+        ._headline_
+            span Tools
+        div(class='_description_ _skillsets_')
+            ._skill_
+                include ./svg/devicon/python.jade
+                span Python
+            ._skill_
+                include ./svg/devicon/java.jade
+                span Java
+            ._skill_
+                include ./svg/devicon/ruby.jade
+                span Ruby
+            ._skill_
+                include ./svg/devicon/jquery.jade
+                span jQuery
+            ._skill_
+                include ./svg/devicon/nodejs.jade
+                span Node.js
+            ._skill_
+                include ./svg/devicon/meteor.jade
+                span Meteor.js
+            ._skill_
+                include ./svg/devicon/react.jade
+                span React.js
+            ._skill_
+                include ./svg/devicon/grunt.jade
+                span Grunt
+            ._skill_
+                include ./svg/devicon/sass.jade
+                span Sass
+            ._skill_
+                include ./svg/devicon/bootstrap.jade
+                span Bootstrap
+            ._skill_
+                include ./svg/devicon/mongodb.jade
+                span MongoDB
+            ._skill_
+                include ./svg/devicon/postgres.jade
+                span Posgres
+            p
+                i The rights of these icons belong to 
+                    a(href='http://devicon.fr/', target='_blank') devicon
+                |. 
+    ._row_
+        ._headline_
+            span Work Experience
+        ._description_
+            ul
+                li Research Assistant at 
+                    a(href='http://designlab.ucsd.edu/', target='_blank', rel="external") UCSD Design Lab
+                    |  (Currently Working)
+                li Software Engineering Intern at 
+                    a(href='http://www.ooyala.com/', target='_blank', rel="external") Ooyala
+                li Software Engineering Intern at 
+                    a(href='http://www.viasat.com/', target='_blank', rel="external") ViaSat, Inc.
+                li Bioinformatics Intern at 
+                    a(href='http://www.salk.edu/', target='_blank', rel="external") Salk Institute
+    ._row_
+        ._headline_
+            span Teaching Experience
+        ._description_
+            ul
+                li 
+                    a(href='http://cogs121.ucsd.edu/', target='_blank', rel="external") Human-Computer Interaction Programming
+                li 
+                    a(href='http://d.ucsd.edu/class/intro-hci/2016/', target='_blank', rel="external") Human-Computer Interaction Design
+                li Usability &amp; Information Architecture
+                li
+                    a(href='http://classes.pint.com/cse134b/', target='_blank', rel="external") Web Client Languages
+                li
+                    a(href='https://sites.google.com/a/eng.ucsd.edu/cse-100-winter-2016', target='_blank', rel="external") Advanced Data Structures
+                li Introduction to Java I/II
+    ._row_
+        ._headline_
+            span Leadership
+        ._description_
+            ul
+                li Project Line Manager @ BlueJay (Advanced Software Engineering course)
+                li Social Activities Chair @ 
+                    a(href='http://cses.ucsd.edu/', target='_blank', rel="external") Computer Science &amp; Engineering Society
+                li Website Coordinator @ 
+                    a(href='http://wcsc.ucsd.edu/', target='_blank', rel="external") Warren College Student Council
