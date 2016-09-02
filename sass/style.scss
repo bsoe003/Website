@@ -232,6 +232,9 @@ footer {
     p {
         font-size: 10pt;
     }
+    small {
+        font-weight: 300;
+    }
     section {
         position: relative;
         top: 50%;
@@ -242,6 +245,10 @@ footer {
         fill: $footer-color;
         margin-left: 2px;
         margin-right: 2px;
+        border-radius: 100%;
+        &:hover {
+            background-color: $primary-bg-color;
+        }
     }
     #linkedin:hover {
         fill: #0077B5;
@@ -287,64 +294,64 @@ a {
     cursor: pointer;
 }
 
-#splash {
-    width: 100vw;
-    height: 100vh;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-color: #000000;
-    background-size: 100% 100%;
-    background-image: url("/media/images/splash.jpg");
-    ._overlay_ {
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.3);
-        ._splash-text_ {
-            width: 100%;
-            max-width: 600px;
-            color: white;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
-            position: relative;
-            top: 50%;
-            @include transform(translateY(-50%));
-            h1 {
-                margin: 0;
-                padding: 0;
-            }
-            p {
-                font-size: 18pt;
-                margin: 0;
-                padding: 0;
-            }
-            #learn-more {
-                display: block;
-                color: white;
-                border: 2px white solid;
-                width: 50%;
-                margin-top: 20px;
-                padding: 20px;
-                margin-left: auto;
-                margin-right: auto;
-                font-size: 14pt;
-                font-weight: 600;
-                text-transform: uppercase;
-                &:hover {
-                    background-color: rgba(255, 255, 255, 0.3);
-                }
-            }
-            #social {
-                margin-top: 20px;
-                svg {
-                    fill: white;
-                    margin-left: 7px;
-                    margin-right: 7px;
-                }
-            }
-        }
-    }
-}
+// #splash {
+//     width: 100vw;
+//     height: 100vh;
+//     background-position: center center;
+//     background-repeat: no-repeat;
+//     background-color: #000000;
+//     background-size: 100% 100%;
+//     background-image: url("/media/images/splash.jpg");
+//     ._overlay_ {
+//         width: 100%;
+//         height: 100%;
+//         background-color: rgba(0, 0, 0, 0.3);
+//         ._splash-text_ {
+//             width: 100%;
+//             max-width: 600px;
+//             color: white;
+//             margin-left: auto;
+//             margin-right: auto;
+//             text-align: center;
+//             position: relative;
+//             top: 50%;
+//             @include transform(translateY(-50%));
+//             h1 {
+//                 margin: 0;
+//                 padding: 0;
+//             }
+//             p {
+//                 font-size: 18pt;
+//                 margin: 0;
+//                 padding: 0;
+//             }
+//             #learn-more {
+//                 display: block;
+//                 color: white;
+//                 border: 2px white solid;
+//                 width: 50%;
+//                 margin-top: 20px;
+//                 padding: 20px;
+//                 margin-left: auto;
+//                 margin-right: auto;
+//                 font-size: 14pt;
+//                 font-weight: 600;
+//                 text-transform: uppercase;
+//                 &:hover {
+//                     background-color: rgba(255, 255, 255, 0.3);
+//                 }
+//             }
+//             #social {
+//                 margin-top: 20px;
+//                 svg {
+//                     fill: white;
+//                     margin-left: 7px;
+//                     margin-right: 7px;
+//                 }
+//             }
+//         }
+//     }
+// }
 
 #content {
     margin-top: $header-height + 50px;

@@ -120,10 +120,16 @@
         }
     });
 
-    // Javascript alternative to open on new window
+    // Javascript alternatives for anchor tags
     $('a').click(function(e) {
+        var href = $(this).attr('href');
+        // opens in new window (without relying on _blank)
         if ($(this).attr('target') === '_blank') {
-            window.open($(this).attr('href'));
+            window.open(href);
+            return false;
+        }
+        // prevents request if user is currently in that page
+        if (href === window.location.pathname) {
             return false;
         }
     });
@@ -173,6 +179,7 @@
     // contact form handler
     $('#contact-form').submit(function(e) {
         e.preventDefault();
+        
         var name = e.target.name.value.trim();
         var email = e.target.email.value.trim();
         var subject = e.target.subject.value.trim();
