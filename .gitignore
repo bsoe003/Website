@@ -9,3 +9,4 @@ manifest.yml
 public/style.min.css
 public/script.min.js
 ngrok
+.idea
