@@ -1,0 +1,13 @@
+node_modules/
+client/
+models/
+.idea/
+.git/
+.gitignore
+.editorconfig
+.prettierrc
+.prettierignore
+package-lock.json
+yarn-error.log
+yarn.lock
+resume.pdf_original

@@ -1,0 +1,41 @@
+/* Base Colors */
+$body-bg-color: #43aaef;
+$main-bg-color: #424242;
+$text-color: #fafafa;
+$link-color: #43aaef;
+$resume-button-color: $link-color;
+$resume-button-hover-color: #318fce;
+
+/* Logo Colors */
+$logo-gray-color: #b9b9b9;
+$logo-red-color: #e74c3c;
+$logo-yellow-color: #f1c40f;
+$logo-green-color: #2ecc71;
+$logo-blue-color: #3498db;
+
+/* Social Icon Colors */
+$linkedin-icon-color: #0077b5;
+$github-icon-color: #000000;
+$twitter-icon-color: #1da1f2;
+$pinterest-icon-color: #bd081c;
+
+/* Screens */
+$tablet-width: 992px;
+$mobile-width: 600px;
+$iphone4-width: 320px;
+
+/* Sizes */
+$social-icon-size: 32px;
+$resume-button-padding: 1em;
+
+/* Margins */
+$main-margin: 1em;
+$section-margin: 40px;
+$social-icon-margin: 0.25em;
+
+/* Keyframes */
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
