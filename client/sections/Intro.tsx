@@ -16,9 +16,7 @@ import {
 // Styles
 import * as styles from '@client/styles/intro.scss';
 
-console.log(styles); // tslint:disable-line
-
-enum StyleIdentifier {
+enum Style {
   INTRO = 'intro',
   ROLE = 'role',
   LOGO = 'logo',
@@ -33,7 +31,7 @@ class Intro extends React.PureComponent {
   }
 
   componentDidMount() {
-    this._typed = new Typed(`.${styles[StyleIdentifier.ROLE]}`, {
+    this._typed = new Typed(`.${styles[Style.ROLE]}`, {
       strings: ROLES,
       typeSpeed: 50,
       backSpeed: 50,
@@ -47,11 +45,11 @@ class Intro extends React.PureComponent {
 
   render() {
     return (
-      <section id={styles[StyleIdentifier.INTRO]}>
+      <section id={styles[Style.INTRO]}>
         <h1>
           Hi, I'm&nbsp;
           <ResizableSVG
-            id={styles[StyleIdentifier.LOGO]}
+            id={styles[Style.LOGO]}
             viewBox={LOGO_VIEWBOX}
             waitTime={LOGO_WAIT_TIME}
             config={LOGO_SIZE_CONFIG}
@@ -60,9 +58,9 @@ class Intro extends React.PureComponent {
           </ResizableSVG>
           rian!
         </h1>
-        <h4 className={styles[StyleIdentifier.ROLE]} />
+        <h4 className={styles[Style.ROLE]} />
         <br />
-        <a id={styles[StyleIdentifier.RESUME]} href="/resume" target="_blank">
+        <a id={styles[Style.RESUME]} href="/resume" target="_blank">
           Open Résumé
         </a>
       </section>

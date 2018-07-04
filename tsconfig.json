@@ -21,8 +21,7 @@
   },
   "include": [
     "client/**/*.tsx",
-    "client/**/*.ts",
-    "extensions.d.ts"
+    "client/**/*.ts"
   ],
   "exclude": [
     "node_modules",
@@ -30,7 +29,7 @@
     "scripts",
     "acceptance-tests",
     "webpack",
-    "jest",
+    "jest"
   ],
   "types": [
     "typePatches"

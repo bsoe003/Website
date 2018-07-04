@@ -6,7 +6,7 @@
   "scripts": {
     "start": "ts-node server/start.ts",
     "build": "NODE_ENV=production webpack",
-    "clean": "rm -rf node_modules && rm -rf public/bundle/*",
+    "clean": "rm -rf node_modules && rm -rf public/bundle/* && rm -rf .cache",
     "lint": "tslint -p tsconfig.json -t stylish -e './node_modules/**/*' './**/*.ts?(x)'",
     "format": "prettier --write ./{client,models,server}/**/*.{ts,tsx,scss,json,gql,graphql}",
     "deploy": "npm run lint -- --fix && npm run format && sh ./deploy.sh",
@@ -31,7 +31,7 @@
     "cookie-parser": "^1.4.3",
     "express": "^4.16.3",
     "ts-node": "^6.0.5",
-    "typescript": "^2.8.3"
+    "typescript": "^2.9.2"
   },
   "devDependencies": {
     "@types/enzyme": "^3.1.10",
@@ -39,13 +39,15 @@
     "@types/react": "^16.3.14",
     "@types/react-dom": "^16.0.5",
     "autoprefixer": "^8.6.0",
-    "awesome-typescript-loader": "4.0.0",
+    "cache-loader": "^1.2.2",
     "css-loader": "^0.28.11",
     "enzyme": "^3.3.0",
     "extract-text-webpack-plugin": "^3.0.2",
+    "fork-ts-checker-webpack-plugin": "^0.4.2",
     "git-pre-commit": "^2.1.4",
     "graphql": "^0.13.2",
     "graphql-tag": "^2.9.2",
+    "happypack": "^5.0.0",
     "jest": "^22.4.4",
     "node-sass": "^4.9.0",
     "optimize-css-assets-webpack-plugin": "3.2.0",
@@ -56,6 +58,8 @@
     "sass-loader": "^7.0.1",
     "source-map-loader": "^0.2.3",
     "style-loader": "^0.21.0",
+    "thread-loader": "^1.1.5",
+    "ts-loader": "^3.5.0",
     "tsconfig-paths-webpack-plugin": "^3.1.3",
     "tslint": "^5.10.0",
     "tslint-config-prettier": "^1.13.0",

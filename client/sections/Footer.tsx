@@ -20,20 +20,20 @@ const profiles: Profile[] = [
   Profile.PINTEREST,
 ];
 
-enum StyleIdentifier {
+enum Style {
   SOCIAL = 'social',
 }
 
 const Footer = () => (
   <footer>
     <small>&copy; 2018 • Brian Soe • Custom Built.</small>
-    <section id={styles[StyleIdentifier.SOCIAL]}>
+    <section id={styles[Style.SOCIAL]}>
       {profiles.map(profile => (
         <a
           key={profile.label}
           href={profile.link}
           target="_blank"
-          className={styles[StyleIdentifier.SOCIAL]}
+          className={styles[Style.SOCIAL]}
         >
           <svg
             version="1.1"
