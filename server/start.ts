@@ -3,7 +3,7 @@ import * as path from 'path';
 import * as fs from 'fs';
 import { each as parallel } from 'async';
 
-import LocalLogger, { LogLevel } from './LocalLogger';
+import LocalLogger from './LocalLogger';
 
 type Cache = { maxAge?: number };
 
@@ -15,7 +15,7 @@ enum Environment {
 // define constants
 const CF_APP_ENV = require('cfenv').getAppEnv();
 const NODE_ENV: string = process.env.NODE_ENV || Environment.DEVELOPMENT;
-const PORT: number = parseInt(CF_APP_ENV.port || process.env.PORT || '3000', 10);
+const PORT: number = parseInt(CF_APP_ENV.port || '3000', 10);
 const CACHE_CONTROL: Cache = {};
 const ROOT_PATH: string = path.resolve(`${__dirname}/..`);
 const API_DIRECTORY = 'data';
@@ -56,7 +56,6 @@ if (NODE_ENV === Environment.DEVELOPMENT) {
     stats: 'errors-only',
   }));
   middlewares.push(webpack.middleware.hot(compiler));
-  middlewares.push(logger.middleware);
 }
 
 // default middleware configurations
@@ -65,14 +64,12 @@ middlewares.push(parser.cookie());
 middlewares.push(parser.body.urlencoded({ extended: false }));
 middlewares.push(parser.body.json());
 
-fs.readdirSync(`${__dirname}/${API_DIRECTORY}`).forEach(filename => {
-  API_FILES.add(`/${API_DIRECTORY}/${filename}`);
-});
+app.all('/api', logger.middleware);
 
 // apply middlewares in "parallel"
 app.use((req, res, next) => {
-  parallel(middlewares, (middleware, callback) => {
-    middleware(req, res, callback);
+  parallel(middlewares, (mw, cb) => {
+    mw(req, res, cb);
   }, next); // tslint:disable-line:align
 });
 
@@ -90,7 +87,7 @@ app.get('*', (req, res) => {
 app.listen(PORT, '0.0.0.0', () => {
   logger.info(`Environment: ${NODE_ENV.toUpperCase()}`);
   logger.info(`Application started at ${PORT}`);
-  if (NODE_ENV === 'development') {
+  if (NODE_ENV === Environment.DEVELOPMENT) {
     logger.info('Building with Webpack ...');
   }
 });

@@ -66,11 +66,9 @@
     ],
     "quotemark": [true, "single", "jsx-double"],
     "radix": true,
-    "semicolon": [true, "always"],
+    "semicolon": [true, "always", "ignore-bound-class-methods"],
     "switch-default": true,
-
     "trailing-comma": false,
-
     "triple-equals": [ true, "allow-null-check" ],
     "typedef": [
       true,

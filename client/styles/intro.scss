@@ -30,11 +30,11 @@ section#intro {
     font-weight: 300;
   }
 
-  span.typed-cursor {
+  span:global(.typed-cursor) {
     font-size: inherit;
   }
 
-  span.typed-cursor--blink {
+  span:global(.typed-cursor--blink) {
     animation: blink 1s steps(5, start) infinite;
   }
 

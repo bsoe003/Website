@@ -5,8 +5,10 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const { TsConfigPathsPlugin } = require('awesome-typescript-loader');
 
-const { DefinePlugin, HotModuleReplacementPlugin, LoaderOptionsPlugin, optimize } = webpack;
+const { DefinePlugin, HotModuleReplacementPlugin, optimize } = webpack;
 const { UglifyJsPlugin, CommonsChunkPlugin } = optimize;
+
+const { NODE_ENV } = process.env;
 
 const config = {
   entry: {
@@ -19,7 +21,15 @@ const config = {
     publicPath: '/bundle',
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
+    extensions: [
+      '.js',
+      '.jsx',
+      '.ts',
+      '.tsx',
+      '.json',
+      '.gql',
+      '.graphql',
+    ],
     plugins: [new TsConfigPathsPlugin()],
   },
   module: {
@@ -30,7 +40,11 @@ const config = {
         fallback: 'style-loader',
         use: [{
           loader: 'css-loader',
-          options: { importLoaders: 1 },
+          options: {
+            modules: true,
+            importLoaders: 1,
+            localIdentName: NODE_ENV === 'production' ? '[hash:base64]' : '[local]',
+          },
         }, {
           loader: 'postcss-loader',
           options: {
@@ -60,22 +74,24 @@ const config = {
         typeCheck: true,
         formatter: 'codeFrame',
       },
+    }, {
+      test: /\.(graphql|gql)$/,
+      exclude: /node_modules/,
+      loader: 'graphql-tag/loader',
     }],
   },
   plugins: [
-    new webpack.DefinePlugin({
+    new DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development'),
+        NODE_ENV: JSON.stringify(NODE_ENV || 'development'),
       },
     }),
     new ExtractTextPlugin('style.css'),
-    new CommonsChunkPlugin({
-      names: 'vendors',
-    }),
+    new CommonsChunkPlugin({ names: 'vendors' }),
   ],
 };
 
-if (process.env.NODE_ENV === 'production') {
+if (NODE_ENV === 'production') {
   config.devtool = 'source-map';
   config.plugins.push(
     new UglifyJsPlugin({
@@ -84,16 +100,12 @@ if (process.env.NODE_ENV === 'production') {
         warnings: false,
         drop_console: true,
       },
-      output: {
-        comments: false,
-      },
+      output: { comments: false },
     }),
     new OptimizeCssAssetsPlugin({
       assetNameRegExp: /\.css$/,
       cssProcessorOptions: {
-        discardComments: {
-          removeAll: true,
-        },
+        discardComments: { removeAll: true },
       },
     })
   );

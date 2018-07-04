@@ -5,13 +5,13 @@ import * as React from 'react';
 import Profile from '@models/Profile';
 
 // Components
-import Icon, { ResizableSVG } from '@client/icons';
+import Icon from '@client/icons';
 
 // Utilities
 import { SOCIAL_ICON_VIEWBOX } from '@client/utils/constants';
 
 // Styles
-import '@client/styles/footer.scss';
+import * as styles from '@client/styles/footer.scss';
 
 const profiles: Profile[] = [
   Profile.LINKEDIN,
@@ -20,18 +20,26 @@ const profiles: Profile[] = [
   Profile.PINTEREST,
 ];
 
+enum StyleIdentifier {
+  SOCIAL = 'social',
+}
+
 const Footer = () => (
   <footer>
     <small>&copy; 2018 • Brian Soe • Custom Built.</small>
-    <section id="social">
+    <section id={styles[StyleIdentifier.SOCIAL]}>
       {profiles.map(profile => (
         <a
           key={profile.label}
           href={profile.link}
           target="_blank"
-          className="social"
+          className={styles[StyleIdentifier.SOCIAL]}
         >
-          <svg id={profile.label} version="1.1" viewBox={SOCIAL_ICON_VIEWBOX}>
+          <svg
+            version="1.1"
+            id={styles[profile.label]}
+            viewBox={SOCIAL_ICON_VIEWBOX}
+          >
             <Icon.Social type={profile} />
           </svg>
         </a>

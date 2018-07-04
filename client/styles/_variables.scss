@@ -34,7 +34,7 @@ $section-margin: 40px;
 $social-icon-margin: 0.25em;
 
 /* Keyframes */
-@keyframes blink {
+@keyframes :global(blink) {
   to {
     visibility: hidden;
   }

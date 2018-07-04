@@ -8,12 +8,14 @@
     "build": "NODE_ENV=production webpack",
     "clean": "rm -rf node_modules && rm -rf public/bundle/*",
     "lint": "tslint -p tsconfig.json -t stylish -e './node_modules/**/*' './**/*.ts?(x)'",
-    "format": "prettier --write ./{client,models,server}/**/*.{ts,tsx,scss,json}",
+    "format": "prettier --write ./{client,models,server}/**/*.{ts,tsx,scss,json,gql,graphql}",
     "deploy": "npm run lint -- --fix && npm run format && sh ./deploy.sh",
     "precommit": "npm run lint -- --fix && npm run format"
   },
   "engines": {
-    "node": "8.11.2"
+    "node": "8.11.2",
+    "npm": "6.1.0",
+    "yarn": "1.7.0"
   },
   "author": "Brian Soe",
   "readme": "README.md",
@@ -42,6 +44,8 @@
     "enzyme": "^3.3.0",
     "extract-text-webpack-plugin": "^3.0.2",
     "git-pre-commit": "^2.1.4",
+    "graphql": "^0.13.2",
+    "graphql-tag": "^2.9.2",
     "jest": "^22.4.4",
     "node-sass": "^4.9.0",
     "optimize-css-assets-webpack-plugin": "3.2.0",

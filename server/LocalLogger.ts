@@ -88,7 +88,7 @@ class LocalLogger {
       }
     });
     next();
-  }; // tslint:disable-line:semicolon
+  };
 
   public info(...params: Array<any>): void {
     this.stdout('info', LogColor.CYAN, ...params);
@@ -103,7 +103,7 @@ class LocalLogger {
   }
 
   private stdout(type: string, color: LogColor, ...params: Array<any>): void {
-    if (this.level > LogLevel[type.toUpperCase()]) {
+    if (params.length === 0 || this.level > LogLevel[type.toUpperCase()]) {
       return;
     }
     const prefixes = [colorize(`[${type.toUpperCase()}]`, color)];
